@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby</title>
+</head>
+<body>
+    <div id="love-sky"></div>
+
+    <div id="first_page">
+        <div>
+            <label>
+                This is For you babe😘😘😘
+            </label>
+        </div>
+
+        <div>
+            <label>
+                I hope you like it💝💝.
+            </label>
+        </div>
+        
+        <div> </div>
+
+        <div>
+            <button id="click-btn" onclick="pagechange(this)">
+                Click Here Maya!
+            </button>
+        </div>
+    </div>
+
+    <div id="second_page" style="display:none">
+        <div id="sec_first_page">
+            <div>
+                <label>
+                    मलाई यसरी नै सधैं माया गर्नु है, माया। ❤️
+                </label>
+            </div>
+            
+            <div>
+                <label>
+                    मेरो सधैं ख्याल राख्नु है, जसरी म पनि तिम्रो ख्याल राख्नेछु। 😘
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    I promise I’ll never let go of you. 🤞🏻❤️
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    I swear this on the mother who gave birth to me and brought me into this world. 💝
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    बस्, सधैं यस्तै भएर मेरो साथमा रहनु है। 🥺
+                </label>
+            </div>
+
+            <div id="love-ques">
+                <div>
+                    <label>
+                        Do you also love me as i do?
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <button id="yes-button" onclick="thank(this)">
+                    Yes
+                </button>
+                <button id="no-button" onclick="movebutton()" onmouseenter="movebutton()">
+                    No
+                </button>
+            </div>
+        </div>
+        <div id="sec_second_page" style="display:none">
+            <div id="lst-message">
+                <div id="thank-message">
+                    <label id="thanksgiving">Thank you Baby!</label>
+                </div>
+                <div>
+                    <label>🤞🏻❤️😘</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <style>
+        #lst-message {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        #love-sky {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+
+            background: #000;
+
+            opacity: 0;
+
+            transition: opacity 3s ease;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+
+        body.love-mode #love-sky {
+            opacity: 1;
+        }
+
+        .sky-heart {
+            position: absolute;
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            opacity: 0.25;
+
+            animation: heartSparkle infinite ease-in-out;
+
+            text-shadow:
+                0 0 3px white,
+                0 0 6px #ff69b4,
+                0 0 10px #ff1493;
+        }
+
+
+        @keyframes heartSparkle {
+
+            0%, 100% {
+                color: white;
+                opacity: 0.2;
+
+                transform: scale(0.75);
+
+                text-shadow:
+                    0 0 2px white,
+                    0 0 4px #ff69b4;
+            }
+
+            25% {
+                color: #fff;
+                opacity: 0.5;
+
+                transform: scale(0.9);
+
+                text-shadow:
+                    0 0 3px white,
+                    0 0 7px #ff69b4;
+            }
+
+            50% {
+                color: #ff69b4;
+                opacity: 1;
+
+                transform: scale(1.3);
+
+                text-shadow:
+                    0 0 4px white,
+                    0 0 10px #ff69b4,
+                    0 0 20px #ff1493,
+                    0 0 30px #ff1493;
+            }
+
+            75% {
+                color: #ffb6d9;
+                opacity: 0.6;
+
+                transform: scale(1);
+
+                text-shadow:
+                    0 0 3px white,
+                    0 0 7px #ff69b4;
+            }
+        }
+
+        #thanksgiving {
+            font-family: 'Arial Black', Impact, sans-serif;
+            font-size: 25px;
+            font-weight: 900;
+            color: transparent;
+            background-image: url(https://t3.ftcdn.net/jpg/07/29/13/88/360_F_729138814_4JyMv3q0DXCSmQgF2mdx2osM82ipQPDG.jpg);
+            background-clip: text;
+        }
+
+        label:not(#thanksgiving) {
+            text-shadow: 2px 3px 4px red
+        }
+
+        #first_page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 10px;
+            flex-direction: column;
+        }
+
+        #second_page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 10px;
+            flex-direction: column;
+        }
+
+        #sec_first_page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 10px;
+            flex-direction: column;
+        }
+
+        #sec_first_page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #sec_first_page > div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #sec_first_page label {
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
+        #click-btn {
+            background: #3515d4;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 6px 0px #1d4ed8; /* 3D edge */
+            transition: transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        #click-btn:active {
+        transform: scale(0.9) translateY(4px);
+        transition: transform 1s linear;
+        }
+
+        #click-btn:hover{
+            transform: translateY(-2px);
+        }
+
+        #yes-button , #no-button{
+            background-color: rgb(227, 32, 64);
+            box-shadow: #49494a auto;
+            color: lightpink;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+            radial-gradient(
+            ellipse at 20% 30%,
+            #ff3b8d 0%,
+            transparent 50%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 70%,
+            #ff8ca0 0%,
+            transparent 55%
+        ),
+
+        radial-gradient(
+            ellipse at 60% 10%,
+            #ffb6a8 0%,
+            transparent 45%
+        ),
+
+        radial-gradient(
+            ellipse at 10% 90%,
+            #7b20e8 0%,
+            transparent 65%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3515d4,
+            #7b20e8 45%,
+            #ff3b91
+        );
+
+    background-size:
+        180% 180%,
+        170% 170%,
+        160% 160%,
+        190% 190%,
+        100% 100%;
+
+    background-position:
+        10% 20%,
+        80% 70%,
+        50% 0%,
+        0% 100%,
+        center;
+
+    animation: clouds 5s ease-in-out infinite alternate;
+}
+
+
+@keyframes clouds {
+
+    0% {
+        background-position:
+            10% 20%,
+            80% 70%,
+            50% 0%,
+            0% 100%,
+            center;
+    }
+
+    50% {
+        background-position:
+            35% 45%,
+            60% 30%,
+            70% 25%,
+            20% 70%,
+            center;
+    }
+
+    100% {
+        background-position:
+            60% 70%,
+            30% 50%,
+            20% 60%,
+            50% 30%,
+            center;
+    }
+}
+
+    </style>
+    <script>
+        function pagechange() {
+            const fpage = document.getElementById("first_page");
+            const spage = document.getElementById("second_page");
+
+                fpage.style.display = "none";
+                spage.style.display = "flex";
+        }
+
+        function thank() {
+
+            const messageshow =
+                document.getElementById("sec_first_page");
+
+            const messageshown =
+                document.getElementById("sec_second_page");
+
+            const body =
+                document.body;
+
+            messageshow.style.display = "none";
+
+            messageshown.style.display = "flex";
+
+            body.classList.add("love-mode");
+        }
+        function movebutton() {
+            const button = document.getElementById("no-button");
+
+            button.style.position = "absolute";
+
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+
+        const loveSky = document.getElementById("love-sky");
+
+        const heartPositions = [
+            [8, 12],
+            [18, 25],
+            [29, 8],
+            [42, 18],
+            [55, 10],
+            [67, 25],
+            [78, 12],
+            [91, 20],
+
+            [5, 42],
+            [15, 55],
+            [26, 40],
+            [38, 52],
+            [50, 38],
+            [63, 55],
+            [74, 43],
+            [86, 52],
+            [96, 40],
+
+            [10, 75],
+            [22, 88],
+            [34, 70],
+            [47, 82],
+            [59, 68],
+            [71, 88],
+            [83, 73],
+            [94, 85],
+
+            [31, 30],
+            [45, 65],
+            [68, 72],
+            [88, 60]
+        ];
+
+
+        heartPositions.forEach((position, index) => {
+
+            const heart = document.createElement("div");
+
+            heart.classList.add("sky-heart");
+
+            heart.innerHTML = "♡";
+
+            heart.style.left = position[0] + "%";
+            heart.style.top = position[1] + "%";
+
+            const sizes = [8, 10, 12, 14, 17];
+
+            heart.style.fontSize =
+                sizes[index % sizes.length] + "px";
+
+            heart.style.animationDuration =
+                (2.5 + (index % 5) * 0.7) + "s";
+
+            heart.style.animationDelay =
+                "-" + ((index * 0.83) % 5) + "s";
+
+
+            loveSky.appendChild(heart);
+        });
+    </script>
+</body>
